@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${owner.username}">Заказчик</title>
+</head>
+<head th:insert="blocks/head :: head"></head>
+<body id="page-top">
+<div id="wrapper">
+    <div th:insert="blocks/nav :: nav"></div>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <div class="container-fluid">
+                    <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i
+                            class="fas fa-bars" style="color: var(--bs-orange);"></i></button>
+                    <ul class="navbar-nav flex-nowrap ms-auto">
+                        <li class="nav-item dropdown no-arrow"><span class="d-none d-lg-inline me-2 text-gray-600 small"
+                                                                     th:text="${username}">Valerie Luna</span></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <h3 class="text-center text-dark mb-1" style="padding-bottom: 20px;" th:text="${owner.username}"></h3>
+                <div th:each="p : ${owner.products}" class="row">
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p th:text="${p.name}"></p>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p>Вес: <span th:text="${p.weight}"></span></p>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p>Цена: <span th:text="${p.price}"></span></p>
+                        <p th:text="${p.price}"></p>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p th:if="${p.fine}">Сумма штрафа: <span th:text="${p.fine.fine}"></span></p>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p th:text="${p.status.name}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © cuspay</span></div>
+            </div>
+        </footer>
+    </div>
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+
+</html>

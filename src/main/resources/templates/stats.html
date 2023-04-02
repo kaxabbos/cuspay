@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Статистика</title>
+</head>
+<head th:insert="blocks/head :: head"></head>
+<body id="page-top">
+<div id="wrapper">
+    <div th:insert="blocks/nav :: nav"></div>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <div class="container-fluid">
+                    <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i
+                            class="fas fa-bars" style="color: var(--bs-orange);"></i></button>
+                    <ul class="navbar-nav flex-nowrap ms-auto">
+                        <li class="nav-item dropdown no-arrow"><span class="d-none d-lg-inline me-2 text-gray-600 small"
+                                                                     th:text="${username}"></span></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <h3 class="text-center text-dark mb-1" style="padding-bottom: 20px;">Статистика</h3>
+                <div th:each="s : ${stats}" class="row">
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p th:text="${s.owner.username}"></p>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p>Оплачено: <span th:text="${s.income}"></span></p>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
+                        <p>Оплачено штрафов: <span th:text="${s.fine}"></span></p>
+                    </div>
+                    <div class="col-auto d-xl-flex justify-content-xl-center align-items-xl-center">
+                        <a class="btn btn-primary" role="button" th:href="'/stats/' + ${s.owner.id}">Детали</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © cuspay</span></div>
+            </div>
+        </footer>
+    </div>
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+
+</html>
