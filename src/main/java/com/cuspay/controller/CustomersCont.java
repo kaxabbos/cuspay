@@ -22,7 +22,14 @@ public class CustomersCont extends Attributes {
     }
 
     @PostMapping("/add")
-    public String userAdd(@RequestParam String name) {
+    public String userAdd(Model model, @RequestParam String name) {
+
+        if (usersRepo.findByUsername(name) != null) {
+            model.addAttribute("message", "Пользователь с таким логином уже существует!");
+            AddAttributesCustomers(model);
+            return "customers";
+        }
+
         Users user = new Users(name, name, Role.CLIENT);
         user.addStat(new Stats());
         usersRepo.save(user);

@@ -29,7 +29,7 @@
                                 </select>
                             </div>
                             <div class="col-auto d-xl-flex justify-content-xl-center align-items-xl-center"><button class="btn btn-primary" type="submit">Изменить</button></div>
-                            <div class="col-auto d-xl-flex justify-content-xl-center align-items-xl-center"><a class="btn btn-danger" role="button" href="/users/delete/">Удалить</a></div>
+                            <div class="col-auto d-xl-flex justify-content-xl-center align-items-xl-center"><a class="btn btn-danger" role="button" th:href="'/users/delete/' + ${u.id}">Удалить</a></div>
                         </div>
                     </form>
                 </div>
