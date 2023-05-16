@@ -18,7 +18,7 @@
             <li th:if="${role != 'NOT'}" class="nav-item"><a class="nav-link" href="/"><span>Мои данные</span></a></li>
             <li th:if="${role == 'MANAGER'}" class="nav-item"><a class="nav-link" href="/products"><span>Товары</span></a></li>
             <li th:if="${role == 'MANAGER'}" class="nav-item"><a class="nav-link" href="/customers"><span>Заказчики</span></a></li>
-            <li th:if="${role == 'MANAGER' or role == 'CLIENT'}" class="nav-item"><a class="nav-link" href="/products/my"><span>Мои товары</span></a></li>
+            <li th:if="${role != 'NOT'}" class="nav-item"><a class="nav-link" href="/products/my"><span>Мои товары</span></a></li>
             <li th:if="${role == 'ADMIN'}" class="nav-item"><a class="nav-link" href="/stats"><span>Статистика</span></a></li>
             <li th:if="${role == 'ADMIN'}" class="nav-item"><a class="nav-link" href="/users"><span>Пользователи</span></a></li>
             <li th:if="${role == 'NOT'}" class="nav-item"><a class="nav-link" href="/login"><span>Вход</span></a></li>

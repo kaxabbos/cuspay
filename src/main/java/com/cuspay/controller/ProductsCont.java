@@ -2,6 +2,7 @@ package com.cuspay.controller;
 
 import com.cuspay.controller.main.Attributes;
 import com.cuspay.model.Fines;
+import com.cuspay.model.Incomes;
 import com.cuspay.model.Products;
 import com.cuspay.model.Users;
 import com.cuspay.model.enums.ProductStatus;
@@ -28,7 +29,7 @@ public class ProductsCont extends Attributes {
     @GetMapping("/withdraw/{id}")
     public String productWithdraw(@PathVariable Long id) {
         Products product = productsRepo.getReferenceById(id);
-        product.setFine(new Fines((int) (product.getPrice() * product.getWeight())));
+        product.setFine(new Fines((int) (product.getPrice().getPrice() * product.getWeight().getWeight())));
         product.setStatus(ProductStatus.WITHDRAW);
         productsRepo.save(product);
         return "redirect:/products";
@@ -55,7 +56,8 @@ public class ProductsCont extends Attributes {
     @GetMapping("/pay/{id}")
     public String productsPay(@PathVariable Long id) {
         Products product = productsRepo.getReferenceById(id);
-        product.getOwner().getStat().setIncome(product.getOwner().getStat().getIncome() + product.getPrice());
+        Incomes incomes = product.getOwner().getStat().getIncomes();
+        incomes.setIncome(incomes.getIncome() + product.getPrice().getPrice());
         product.setStatus(ProductStatus.PAID_FOR);
         productsRepo.save(product);
         return "redirect:/products/my";

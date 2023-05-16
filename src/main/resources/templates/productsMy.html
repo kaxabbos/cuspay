@@ -23,13 +23,13 @@
                 <h3 class="text-center text-dark mb-1" style="padding-bottom: 20px;">Мои товары</h3>
                 <div th:each="p : ${user.products}" th:if="${p.status.name() == 'WAITING'}" class="row mb-2">
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p th:text="${p.name}"></p>
+                        <p th:text="${p.name.name}"></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p>Вес: <span th:text="${p.weight}"></span></p>
+                        <p>Вес: <span th:text="${p.weight.weight}"></span></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p>Цена: <span th:text="${p.price}"></span></p>
+                        <p>Цена: <span th:text="${p.price.price}"></span></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
                         <p>Статус: <span th:text="${p.status.name}"></span></p>
@@ -41,13 +41,13 @@
                 <hr>
                 <div th:each="p : ${user.products}" th:if="${p.status.name() == 'WITHDRAW'}" class="row mb-2">
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p th:text="${p.name}"></p>
+                        <p th:text="${p.name.name}"></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p>Вес: <span th:text="${p.weight}"></span></p>
+                        <p>Вес: <span th:text="${p.weight.weight}"></span></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p>Цена: <span th:text="${p.price}"></span></p>
+                        <p>Цена: <span th:text="${p.price.price}"></span></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
                         <p>Штраф: <span th:text="${p.fine.fine}"></span></p>
@@ -62,13 +62,13 @@
                 <hr>
                 <div th:each="p : ${user.products}" th:if="${p.status.name() == 'PAID_FOR'}" class="row mb-2">
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p th:text="${p.name}"></p>
+                        <p th:text="${p.name.name}"></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p>Вес: <span th:text="${p.weight}"></span></p>
+                        <p>Вес: <span th:text="${p.weight.weight}"></span></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
-                        <p>Цена: <span th:text="${p.price}"></span></p>
+                        <p>Цена: <span th:text="${p.price.price}"></span></p>
                     </div>
                     <div class="col d-xl-flex justify-content-xl-start align-items-xl-center">
                         <p>Статус: <span th:text="${p.status.name}"></span></p>

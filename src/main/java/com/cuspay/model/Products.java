@@ -19,20 +19,23 @@ public class Products {
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    private String name;
-    private float weight;
-    private int price;
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
     @ManyToOne(fetch = FetchType.LAZY)
     private Users owner;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Fines fine;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Names name;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Weights weight;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Prices price;
 
     public Products(String name, float weight, int price) {
-        this.name = name;
-        this.weight = weight;
-        this.price = price;
+        this.name = new Names(name);
+        this.weight = new Weights(weight);
+        this.price = new Prices(price);
         this.status = ProductStatus.WAITING;
     }
 }
