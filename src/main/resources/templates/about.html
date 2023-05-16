@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>О нас</title>
+</head>
+<head th:insert="blocks/head :: head"></head>
+<body id="page-top">
+<div id="wrapper">
+    <div th:insert="blocks/nav :: nav"></div>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <div class="container-fluid">
+                    <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i
+                            class="fas fa-bars" style="color: var(--bs-orange);"></i></button>
+                    <ul class="navbar-nav flex-nowrap ms-auto">
+                        <li class="nav-item dropdown no-arrow"><span class="d-none d-lg-inline me-2 text-gray-600 small"
+                                                                     th:text="${username}"></span></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12" align="justify"><p class="lead">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Adipisci animi aut consequatur dolorum fuga fugiat hic, illum ipsa ipsum iusto
+                        officiis perferendis quibusdam sapiente similique tempora temporibus veritatis voluptate
+                        voluptates.</p></div>
+                    <div class="col-12" align="center">
+                        <iframe allowfullscreen="" frameborder="0" loading="lazy"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGz6HJDVY9fht_jGVCprEpRCwZ8PSsqhc&amp;q=Minsk&amp;zoom=11"
+                                width="75%" height="400"
+                                style="box-shadow: 0px 0px 6px;border-radius: 5px;border: 1px solid rgb(255,255,255);width: 100%;margin-top: 15px;height: 500px;"></iframe>
+                    </div>
+                    <div class="col-12" align="justify"><p class="lead">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Accusantium adipisci aperiam architecto aspernatur autem cupiditate fugit hic
+                        inventore, magni nam necessitatibus nostrum soluta tenetur! Ab consequuntur explicabo iste
+                        necessitatibus pariatur.</p></div>
+                    <div class="col-12" align="justify"><p class="lead">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Accusamus distinctio doloribus iusto officia quibusdam quod sed sit voluptas.
+                        Accusamus dolore earum eum expedita fuga illo nobis pariatur quos sapiente unde.</p></div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © cuspay</span></div>
+            </div>
+        </footer>
+    </div>
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+
+</html>

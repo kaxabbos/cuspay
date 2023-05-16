@@ -20,4 +20,10 @@ public class IndexCont extends Attributes {
         return "user";
     }
 
+    @GetMapping("/about")
+    public String about(Model model) {
+        AddAttributes(model);
+        return "about";
+    }
+
 }
